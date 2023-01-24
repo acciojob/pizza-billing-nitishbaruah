@@ -59,11 +59,11 @@ public class Pizza {
             pizzaprice+=80;
         }
         if(extraTopping){
-            s+="Extra Topping Added: "+topping+"\n";
+            s+="Extra Toppings Added: "+topping+"\n";
             pizzaprice+=topping;
         }
         if(takeaway){
-            s+="Paper Bag: "+20+"\n";
+            s+="Paperbag Added: "+20+"\n";
             pizzaprice+=20;
         }
         s+="Total Price: "+(price+topping+100)+"\n";
