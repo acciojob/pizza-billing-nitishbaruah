@@ -34,15 +34,21 @@ public class Pizza {
     }
 
     public void addExtraCheese(){
-        extraCheese=true;
+        if(!extraCheese) {
+            extraCheese = true;
+        }
     }
 
     public void addExtraToppings(){
-        extraTopping=true;
+        if(!extraTopping) {
+            extraTopping = true;
+        }
     }
 
     public void addTakeaway(){
-        takeaway=true;
+        if(!takeaway) {
+            takeaway = true;
+        }
     }
 
     public String getBill(){
