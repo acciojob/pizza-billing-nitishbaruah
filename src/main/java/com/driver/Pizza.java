@@ -5,70 +5,72 @@ public class Pizza {
     private int price;
     private Boolean isVeg;
     private String bill;
-    private int topping;
-    private Boolean extraTopping;
-    private Boolean extraCheese;
-    private Boolean takeaway;
-
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
         // your code goes here
-        if(isVeg) {
-            this.price = 300;
-            this.topping=70;
+        if(this.isVeg==true){
+            price+=300;
         }
-        else {
-            this.price=400;
-            this.topping=120;
+        else{
+            price+=400;
         }
-        this.extraCheese=false;
-        this.extraTopping=false;
-        this.takeaway=false;
-        System.out.println("Base Price Of The Pizza: "+price);
 
+        bill="Base Price Of The Pizza: "+price+"\n";
     }
 
+
     public int getPrice(){
+
         return this.price;
     }
 
+    boolean addcheese=false;
     public void addExtraCheese(){
-        if(!extraCheese) {
-            extraCheese = true;
+        // your code goes here
+        if(addcheese==false){
+            this.price+=80;
+            bill+="Extra Cheese Added: 80\n";
+            addcheese=true;
         }
     }
 
+    boolean addtopping=false;
     public void addExtraToppings(){
-        if(!extraTopping) {
-            extraTopping = true;
+        // your code goes here
+        if(addtopping==false){
+            if(isVeg==true){
+                this.price+=70;
+                bill+="Extra Toppings Added: "+70+"\n";
+            }
+            else{
+                this.price+=120;
+                bill+="Extra Toppings Added: "+120+"\n";
+            }
+            addtopping=true;
         }
     }
 
+    boolean takeawy=false;
     public void addTakeaway(){
-        if(!takeaway) {
-            takeaway = true;
+        // your code goes here
+        if(takeawy==false){
+            this.price+=20;
+            bill+="Paperbag Added: "+20+"\n";
+            takeawy=true;
         }
     }
 
     public String getBill(){
-        String s="";
-        int pizzaprice=price;
-        if(extraCheese){
-            s+="Extra Cheese Added: "+80+"\n";
-            pizzaprice+=80;
-        }
-        if(extraTopping){
-            s+="Extra Toppings Added: "+topping+"\n";
-            pizzaprice+=topping;
-        }
-        if(takeaway){
-            s+="Paperbag Added: "+20+"\n";
-            pizzaprice+=20;
-        }
-        s+="Total Price: "+(price+topping+100)+"\n";
-        return s;
+        // your code goes here
 
+        this.bill = ("Base Price Of The Pizza: " + (isVeg?300:400)+
+                (addcheese?("\nExtra Cheese Added: 80"):" ") +
+                (addtopping?("\nExtra Toppings Added: "  + (isVeg?70:120)):"") +
+                (takeawy?("\nPaperbag Added: 20"):"") +
+                "\nTotal Price: "+ this.price + "\n"
+        );
+
+        return this.bill;
     }
-
 }
